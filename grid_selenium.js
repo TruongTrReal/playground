@@ -53,7 +53,7 @@ async function getScreenSize() {
     return await getResolution();
   } catch {
     // Fallback to default resolution if detection fails
-    return { width: 1920, height: 1080 };
+    return { width: 800, height: 600 };
   }
 }
 
@@ -84,15 +84,3 @@ async function launchBrowsers(n) {
     await createBrowser(x, y, w, h);
   }
 }
-
-process.on('SIGINT', async () => {
-  for (let driver of drivers) {
-    try {
-      await driver.quit();
-    } catch {}
-  }
-  process.exit();
-});
-
-await launchBrowsers(12);
-setInterval(() => {}, 1000);
