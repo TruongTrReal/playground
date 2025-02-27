@@ -1,3 +1,24 @@
-
-node_modules
+/node_modules
 package-lock.json
+config/accounts.txt
+config/proxy.txt
+/.venv
+config/accounts.txt
+assign_proxy.log
+automation.log
+process.log
+worker.log
+server.js
+config/account_with_proxy.json
+config/filtered_proxy.json
+profiles
+output
+# db
+# api.http
+config/phantomKeys.txt
+# src
+# app_test.js
+
+
+
+
