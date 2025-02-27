@@ -1,6 +1,7 @@
 import { Builder } from 'selenium-webdriver';
 import chrome from 'selenium-webdriver/chrome.js';
 import { exec } from 'child_process';
+import os from "os";
 
 let drivers = [];
 
@@ -63,6 +64,12 @@ async function createBrowser(x, y, w, h) {
     `--window-size=${w},${h}`,
     '--force-device-scale-factor=0.2'
   );
+  if (os.platform() === 'linux') {
+    opts.addArguments(
+      '--no-sandbox',
+    );
+    opts.setChromeBinaryPath('/usr/bin/chromium-browser');
+  }
   drivers.push(await new Builder().forBrowser('chrome').setChromeOptions(opts).build());
 }
 
